@@ -1,0 +1,141 @@
+.navbar {
+    backdrop-filter: blur(20px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; 
+    padding: 0 10px; 
+  }
+  
+  @keyframes borderExpand {
+    from {
+      width: 0;
+      left: 50%;
+    }
+    to {
+      width: 100%;
+      left: 0;
+    }
+  }
+  
+  .navbar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%; 
+    width: 0; 
+    height: 2px; 
+    background-color: rgb(1, 149, 1);
+    animation: borderExpand 1s ease-out forwards;
+  }
+  
+  
+  .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+  }
+      
+  @font-face {
+    font-family: 'YourFontName';
+    src: url('/fonts/Bebas-Regular.ttf') format('truetype'); 
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container .navbar-collapse .nav-item .active {
+    position: relative;
+    color: rgb(255, 255, 255);
+  }
+  
+  .container .navbar-collapse .nav-item .active:hover {
+    color: lime;
+    transition: 0.5s;
+    text-shadow: 2px 2px 4px rgba(1, 0, 1);
+  }
+  
+  .container .navbar-collapse .nav-item .nav-link {
+    position: relative;
+    color: rgb(255, 255, 255);
+  }
+  
+  .container .navbar-collapse .nav-item .nav-link:hover {
+    color: lime;
+    transition: 0.5s;
+    text-shadow: 2px 2px 4px rgba(1, 0, 1);
+  }
+  
+  .container .navbar-collapse .nav-item .active {
+    position: relative;
+    color: rgb(255, 255, 255);
+  }
+  
+  .container .navbar-collapse .nav-item .active:hover {
+    color: lime;
+    transition: 0.5s;
+    text-shadow: 2px 2px 4px rgba(1, 0, 1);
+  }
+  
+  .object-fit-contain {
+    object-fit: cover;
+  }
+  
+  .collapse.navbar-collapse .dropdown-menu {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.659), rgb(143, 143, 143));
+    border-color: black;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+  }
+  
+  .collapse.navbar-collapse .dropdown-menu a.dropdown-item {
+    color: rgb(0, 0, 0);
+  }
+  
+  .collapse.navbar-collapse .dropdown-menu a.dropdown-item:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(39, 39, 39);
+    border-radius: 2px;
+    border-color: black;
+    transition: 0.2s;
+  }
+  
+  .collapse.navbar-collapse .dropdown-menu .dropdown-item hr.dropdown-divider {
+    color: lime;
+  }
+  
+  .navbar-nav .nav-item {
+    position: relative;
+  }
+  
+  .navbar-nav .nav-item:hover .dropdown-menu {
+    display: block;
+    animation: slideInDown 0.5s ease-in-out forwards;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 2.6rem; 
+  }
+  
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .nav-link {
+    color: black;
+    font-size: 20px;
+  }
+  
+  

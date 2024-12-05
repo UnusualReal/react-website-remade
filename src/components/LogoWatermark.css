@@ -1,0 +1,19 @@
+.logo {
+    position: absolute;
+    margin-left: 34rem;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: slideIn 2s forwards ease-in-out;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    to {
+      bottom: 100%;
+      transform: translateY(25%);
+      opacity: 1;
+    }
+  }
+  

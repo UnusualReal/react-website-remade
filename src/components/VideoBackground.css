@@ -1,0 +1,22 @@
+#video-bg {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; 
+  z-index: -1;
+  filter: blur(5px);
+}
+
+
+#video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  background-color: black; 
+}
