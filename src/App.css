@@ -3,6 +3,11 @@
   margin: 0;
   font-family: 'YourFontName', sans-serif;
   font-size: 19px;
+  overflow-x: hidden;
+}
+
+.Appy::-webkit-scrollbar {
+  width: 1px;
 }
 
 @font-face {

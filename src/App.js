@@ -3,19 +3,23 @@ import "./App.css";
 import VideoBackground from "./components/VideoBackground";
 import Navbar from "./components/Navbar";
 import LogoWatermark from "./components/LogoWatermark";
+import WatermarkBasic from "./components/WatermarkBasic";
 import CardSection from "./components/CardSection";
+import TrailerVideo from './components/TrailerVideo';
+import VideoBackground1 from "./components/VideoBackground1";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import VideoSectionTrailer from "./components/VideoSectionTrailer";
+import Credits from "./components/Credits";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <VideoBackground />
         <Navbar />
         <Routes>
-          <Route path="/" element={<> <LogoWatermark /> <CardSection /></>}
+          <Route path="/" element={<> <LogoWatermark/> <CardSection/> <Credits/> <VideoBackground/></>}
           />
-          <Route path="/test" element={<CardSection />} />
+          <Route path="/test" element={<> <TrailerVideo/> <VideoSectionTrailer/> <WatermarkBasic/> <VideoBackground1/></>} />
         </Routes>
       </BrowserRouter>
     </div>

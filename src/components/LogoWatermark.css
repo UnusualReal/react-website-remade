@@ -1,19 +1,17 @@
 .logo {
-    position: absolute;
-    margin-left: 34rem;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    animation: slideIn 2s forwards ease-in-out;
-    transition: transform 0.3s ease-in-out;
+  position: absolute; /* Ensures it can be positioned */
+  top: 6rem;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers it perfectly */
+  z-index: 1;
+  opacity: 0;
+  animation: slideIn 2s forwards ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -25%); /* Adjusts slide-in effect while staying centered */
   }
-  
-  @keyframes slideIn {
-    to {
-      bottom: 100%;
-      transform: translateY(25%);
-      opacity: 1;
-    }
-  }
-  
+}

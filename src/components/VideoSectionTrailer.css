@@ -1,0 +1,110 @@
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLater {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40%;
+  }
+}
+
+/* Blinking caret animation */
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Video Wrapper - Initially Hidden */
+.video-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 1000px;
+  height: auto;
+  margin: 12rem auto;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* When Video Wrapper is Visible */
+.video-wrapper.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Video Boxes - Initially Hidden */
+.video-box {
+  width: 250px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+/* When Videos are Visible */
+.fade-in-video {
+  opacity: 1;
+}
+
+.video-title {
+  font-size: 50px;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  overflow: hidden; /* Ensures text is hidden before animation starts */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+  white-space: nowrap; /* Prevents the text from wrapping */
+  border-right: 3px solid rgba(255, 255, 255, 0.75); /* Simulates the cursor effect */
+  animation: typing 3s steps(30) 1s forwards, blink-caret 0.75s step-end infinite; /* Multiple animations */
+}
+
+.video-title span {
+  color: lime;
+}
+
+#video_selection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}

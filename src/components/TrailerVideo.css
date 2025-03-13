@@ -1,0 +1,25 @@
+.col-lg-6.mb-3 video {
+    border-radius: 5px;
+  }
+  
+  .col-lg-6.mb-3 {
+    position: relative;
+    margin-left: 22rem;
+    margin-top: 6rem;
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+  }
+  
+  .button-volume {
+    background-color: transparent;
+    border: 0;
+  }
+  
+  .bi.bi-volume-mute {
+    color: rgb(0, 206, 0);
+    font-size: 25px;
+  }
+  
+  .bi.bi-volume-up-fill {
+    color: rgb(0, 206, 0);
+    font-size: 25px;
+  }

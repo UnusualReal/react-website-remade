@@ -1,3 +1,16 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'YourFontName';
+  font-size: 19px;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 1px;
+}
+
+
 .Trailer {
     padding: 0;
     margin: 0;
@@ -10,4 +23,250 @@
     src: url('/fonts/Bebas-Regular.ttf') format('truetype'); 
     font-weight: 700;
     font-style: normal;
+
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      opacity: 0.3;
+    }
+    
+    .container-lower.video-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .video-container {
+      position: relative;
+      margin-top: 10rem;
+      width: 60%;
+    }
+    
+    .video-container video {
+      position: relative;
+      margin-left: 5rem;
+      max-width: 85%;
+      height: auto;
+      border: 2px solid lime;
+      border-radius: 15px;
+    }
+    
+    .text-container {
+      width: 60%;
+      margin-top: 10rem;
+      margin-right: 5rem;
+      position: relative;
+    }
+    
+    .text-container::before {
+      content: '';
+      border-radius: 5px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: lime;
+      transition: width 0.3s ease;
+    }
+    
+    .text-container:hover::before {
+      width: 100%;
+    }
+    
+    .container-lower.video-section h2 {
+      position: relative;
+      font-size: 30px;
+      color: white;
+      font-family: 'YourFontName', cursive;
+      transition: 0.2s ease-in-out;
+    }
+    
+    .container-lower.video-section h2:hover {
+      transform: scale(1.02);
+    }
+    
+    .container-lower2.video-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .video-container2 {
+      position: relative;
+      margin-top: 10rem;
+      width: 60%;
+    }
+    
+    .video-container2 video {
+      position: relative;
+      margin-left: 45rem;
+      max-width: 85%;
+      height: auto;
+      border: 2px solid lime;
+      border-radius: 15px;
+    }
+    
+    .text-container2 {
+      width: 60%;
+      margin-top: 10rem;
+      margin-right: 10rem;
+      border-bottom: solid 3px rgb(71, 71, 71);
+    }
+    
+    .text-container2 h2::before {
+      content: '';
+      border-radius: 5px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: lime;
+      transition: width 0.3s ease;
+    }
+    
+    .text-container2 h2:hover::before {
+      width: 100%;
+    }
+    
+    .container-lower2.video-section h2 {
+      position: relative;
+      width: 110%;
+      font-size: 30px;
+      left: -125%;
+      color: white;
+      font-family: 'YourFontName';
+      transition: 0.2s ease-in-out;
+      
+    }
+    
+    .container-lower2.video-section h2:hover {
+      transform: scale(1.02);
+    }
+    
+    .video-container3 {
+      position: relative;
+      margin-top: 10rem;
+      width: 60%;
+    }
+    
+    .video-container3 video {
+      position: relative;
+      margin-left: 5rem;
+      max-width: 70%;
+      height: auto;
+      border: 2px solid lime;
+      border-radius: 15px;
+    }
+    
+    .text-container3 {
+      width: 60%;
+      margin-bottom: 2rem;
+      margin-left: 42rem;
+      position: relative;
+    }
+    
+    .text-container3 h2::before {
+      content: '';
+      border-radius: 5px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: lime;
+      transition: width 0.3s ease;
+    }
+    
+    .text-container3 h2:hover::before {
+      width: 100%;
+    }
+    
+    .container-lower3.video-section h2 {
+      position: relative;
+      bottom: 200px;
+      font-size: 30px;
+      color: white;
+      font-family: 'YourFontName', cursive;
+      transition: 0.2s ease-in-out;
+    }
+    
+    .container-lower3.video-section h2:hover {
+      transform: scale(1.02);
+    }
+    
+    .video-container4 {
+      position: relative;
+      display: inline-block;
+      width: 110%;
+    }
+    
+    .video-container4 video {
+      margin-top: 7rem;
+      margin-left: 50rem;
+      border: 2px solid lime;
+      border-radius: 15px;
+      max-width: 35%;
+      height: auto;
+    }
+    
+    .video-container5 {
+      position: relative;
+      display: inline-block;
+      width: 110%;
+    }
+    
+    .video-container5 video {
+      margin-top: 10rem;
+      margin-left: 5rem;
+      border: 2px solid lime;
+      border-radius: 15px;
+      max-width: 35%;
+      height: auto;
+    }
+    
+    #outer-container {
+      margin-left: 10rem;
+      bottom: 100%;
+      transform: translate(0%, -50%);
+      margin-top: 20rem;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    #img-container {
+      border: 5px solid rgb(0, 0, 0);
+      background: black;
+      display: flex;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+    
+    .image {
+      border-radius: 5px;
+      width: 35vmin;
+      height: 56vmin;
+      object-fit: cover;
+      object-position: 50% 100%;
+      scroll-snap-align: start;
+      margin-right: 4vmin;
+      animation: scrollImages 50s linear infinite;
+    }
+    
+    @keyframes scrollImages {
+      0% {
+          transform: translateX(0%);
+      }
+    
+      100% {
+          transform: translateX(-1000%);
+      }
+    }
+    
   }
