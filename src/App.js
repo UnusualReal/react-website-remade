@@ -17,9 +17,11 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<> <LogoWatermark/> <CardSection/> <Credits/> <VideoBackground/></>}
+          <Route path="Home" element={<> <LogoWatermark/> <CardSection/> <Credits/> <VideoBackground/></>}
           />
-          <Route path="/test" element={<> <TrailerVideo/> <VideoSectionTrailer/> <WatermarkBasic/> <VideoBackground1/></>} />
+          <Route path="Trailer" element={<> <TrailerVideo/> <VideoSectionTrailer/> <WatermarkBasic/> <VideoBackground1/></>} />
+
+          <Route path="Commissions" element={<> </>} />
         </Routes>
       </BrowserRouter>
     </div>

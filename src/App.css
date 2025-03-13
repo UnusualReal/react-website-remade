@@ -6,9 +6,16 @@
   overflow-x: hidden;
 }
 
-.Appy::-webkit-scrollbar {
-  width: 1px;
+html, body {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
 }
+
+::-webkit-scrollbar {
+  display: none; 
+}
+
 
 @font-face {
   font-family: 'YourFontName';

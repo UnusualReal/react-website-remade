@@ -3,11 +3,13 @@
   }
   
   .col-lg-6.mb-3 {
-    position: relative;
-    margin-left: 22rem;
-    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0 auto;
     filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
-  }
+}
   
   .button-volume {
     background-color: transparent;

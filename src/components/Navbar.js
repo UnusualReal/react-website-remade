@@ -13,7 +13,7 @@ const Navbar = () => {
           <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/">Home</Link>
+                <Link className="nav-link" to="Home">Home</Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="https://www.youtube.com/channel/UCeqa1_KroAIXJC9l13UtG8g">YouTube</a>
@@ -21,8 +21,8 @@ const Navbar = () => {
               <li className="nav-item dropdown">
                 <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/">Trailer</Link>
                 <ul className="dropdown-menu">
-                  <Link className="dropdown-item" to="/test">Trailer</Link>
-                  <Link className="dropdown-item" to="/">Commissions</Link>
+                  <Link className="dropdown-item" to="Trailer">Trailer</Link>
+                  <Link className="dropdown-item" to="Commissions">Commissions</Link>
                   <Link className="dropdown-item" to="/">About me</Link>
                   <Link className="dropdown-item" to="/">Tutorials</Link>
                 </ul>
