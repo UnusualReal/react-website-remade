@@ -4,6 +4,8 @@ import "./VideoSectionTrailer.css";
 const VideoSectionTrailer = () => {
   const [isVisible, setIsVisible] = useState(false);
   const videoWrapperRef = useRef(null);
+  const fullscreenVideoRef = useRef(null);
+  const [fullscreenVideo, setFullscreenVideo] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -12,7 +14,7 @@ const VideoSectionTrailer = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 } // Adjust visibility threshold (30% of element must be visible)
+      { threshold: 0.3 }
     );
 
     if (videoWrapperRef.current) {
@@ -25,6 +27,17 @@ const VideoSectionTrailer = () => {
       }
     };
   }, []);
+
+  // Open video in fullscreen
+  const openFullscreen = (videoSrc) => {
+    setFullscreenVideo(videoSrc);
+    setTimeout(() => {
+      if (fullscreenVideoRef.current) {
+        fullscreenVideoRef.current.requestFullscreen();
+        fullscreenVideoRef.current.play();
+      }
+    }, 100);
+  };
 
   return (
     <div ref={videoWrapperRef} className={`video-wrapper ${isVisible ? "fade-in" : ""}`}>
@@ -41,15 +54,36 @@ const VideoSectionTrailer = () => {
           <div
             key={index}
             className={`video-box ${isVisible ? "fade-in-video" : ""}`}
-            style={{ animationDelay: `${0.5 + index * 0.3}s` }} // Staggered delay
+            style={{ animationDelay: `${0.5 + index * 0.3}s` }}
           >
-            <video autoPlay muted loop className="video">
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            <div className="video-container">
+              {/* Video element */}
+              <video autoPlay muted loop className="video">
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+
+              {/* Play button (appears on hover) */}
+              <button className="play-button" onClick={() => openFullscreen(videoSrc)}>
+                ▶
+              </button>
+            </div>
           </div>
         ))}
       </div>
+
+      {/* Fullscreen Video Overlay */}
+      {fullscreenVideo && (
+        <div className="fullscreen-overlay" onClick={() => setFullscreenVideo(null)}>
+          <video
+            ref={fullscreenVideoRef}
+            controls
+            autoPlay
+            className="fullscreen-video"
+            src={fullscreenVideo}
+          ></video>
+        </div>
+      )}
     </div>
   );
 };
