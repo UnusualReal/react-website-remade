@@ -10,6 +10,7 @@ import VideoBackground1 from "./components/VideoBackground1";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import VideoSectionTrailer from "./components/VideoSectionTrailer";
 import Credits from "./components/Credits";
+import ImageBackground from "./components/ImageBackground";
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           />
           <Route path="Trailer" element={<> <TrailerVideo/> <VideoSectionTrailer/> <WatermarkBasic/> <VideoBackground1/></>} />
 
-          <Route path="Commissions" element={<> </>} />
+          <Route path="Commissions" element={<> <WatermarkBasic/> <ImageBackground/></>} />
         </Routes>
       </BrowserRouter>
     </div>

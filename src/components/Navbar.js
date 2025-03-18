@@ -19,7 +19,7 @@ const Navbar = () => {
                 <a className="nav-link" href="https://www.youtube.com/channel/UCeqa1_KroAIXJC9l13UtG8g">YouTube</a>
               </li>
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/">Trailer</Link>
+                <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" to="/">Menu</Link>
                 <ul className="dropdown-menu">
                   <Link className="dropdown-item" to="Trailer">Trailer</Link>
                   <Link className="dropdown-item" to="Commissions">Commissions</Link>

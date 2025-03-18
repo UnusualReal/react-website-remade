@@ -1,4 +1,3 @@
-/* Keep your original animations */
 @keyframes fadeSlideIn {
   from {
     opacity: 0;
@@ -34,7 +33,7 @@
   }
 }
 
-/* Keep original video-wrapper styling */
+
 .video-wrapper {
   display: flex;
   flex-direction: column;
@@ -55,13 +54,13 @@
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-/* When Video Wrapper is Visible */
+
 .video-wrapper.fade-in {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Video Boxes */
+
 .video-box {
   width: 250px;
   height: 150px;
@@ -73,12 +72,12 @@
   transition: opacity 1s ease-out;
 }
 
-/* When Videos are Visible */
+
 .fade-in-video {
   opacity: 1;
 }
 
-/* Keep original title styling */
+
 .video-title {
   font-size: 50px;
   color: white;
@@ -103,7 +102,7 @@
   gap: 20px;
 }
 
-/* Keep video styling */
+
 .video {
   width: 100%;
   height: 100%;
@@ -111,7 +110,7 @@
   border-radius: 10px;
 }
 
-/* Fullscreen Video Overlay */
+
 .fullscreen-overlay {
   position: fixed;
   top: 0;
@@ -125,14 +124,14 @@
   z-index: 9999;
 }
 
-/* Fullscreen Video */
+
 .fullscreen-video {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
 }
 
-/* Play Button on Hover */
+
 .video-container {
   position: relative;
   width: 100%;
