@@ -24,10 +24,13 @@ function App() {
           <Route path="Trailer" element={<> <TrailerVideo/> <VideoSectionTrailer/> <WatermarkBasic/> <VideoBackground1/></>} />
 
           <Route path="Commissions" element={<> <VideoCommissions/> <WatermarkBasic/> <ImageBackground/></>} />
+
+          <Route path="AuthorizationPage" element={<></>} />
         </Routes>
       </BrowserRouter>
     </div>
   );
 }
+
 
 export default App;
