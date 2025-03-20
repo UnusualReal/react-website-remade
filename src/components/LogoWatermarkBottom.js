@@ -4,7 +4,7 @@ import './LogoWatermarkBottom.css'
 const LogoWatermarkBottom = () => {
   return (
     <div>
-      <img className="logo" src="imgs/watemrark_unusual_1.png" alt="logo" width="400" height="170" />
+      <img className="logo" src="imgs/watemrark_unusual_1.png" alt="logo" width="250" height="100" />
     </div>
   );
 };

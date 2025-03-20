@@ -1,36 +1,52 @@
 import React from "react";
-import "./App.css";
-import VideoBackground from "./components/VideoBackground";
-import Navbar from "./components/Navbar";
-import LogoWatermark from "./components/LogoWatermark";
-import WatermarkBasic from "./components/WatermarkBasic";
-import CardSection from "./components/CardSection";
+import './App.css';
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { AuthProvider } from './context/authContext';
+import Navbar from './components/Navbar';
+import Login from './components/LogIn';
+import Signup from './components/SignUp';
+import LogoWatermark from './components/LogoWatermark';
 import TrailerVideo from './components/TrailerVideo';
-import VideoBackground1 from "./components/VideoBackground1";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import VideoSectionTrailer from "./components/VideoSectionTrailer";
-import Credits from "./components/Credits";
-import ImageBackground from "./components/ImageBackground";
-import VideoCommissions from "./components/VideoCommissions";
+import VideoBackground1 from './components/VideoBackground1';
+import CardSection from './components/CardSection';
+import Credits from './components/Credits';
+import VideoBackground from './components/VideoBackground';
+import Logout from './components/LogOut';
+import ProtectedRoute from './components/ProtectedRoute';
+import VideoSelectionTrailer from './components/VideoSectionTrailer';
+import LogoWatermarkBottom from './components/LogoWatermarkBottom';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="Home" element={<> <LogoWatermark/> <CardSection/> <Credits/> <VideoBackground/></>}
-          />
-          <Route path="Trailer" element={<> <TrailerVideo/> <VideoSectionTrailer/> <WatermarkBasic/> <VideoBackground1/></>} />
+        <AuthProvider>
+          <Navbar />
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
 
-          <Route path="Commissions" element={<> <VideoCommissions/> <WatermarkBasic/> <ImageBackground/></>} />
+            {/* Default Route - If the user is not logged in, redirect them to login */}
+            <Route path="/" element={<Navigate to="/login" />} />
 
-          <Route path="AuthorizationPage" element={<></>} />
-        </Routes>
+            {/* Protected Routes (only accessible if logged in) */}
+            <Route 
+              path="/home" 
+              element={<ProtectedRoute><LogoWatermark /><CardSection /><Credits /><VideoBackground /></ProtectedRoute>} 
+            />
+            <Route 
+              path="/trailer" 
+              element={<ProtectedRoute><TrailerVideo /><VideoBackground1 /><VideoSelectionTrailer /><LogoWatermarkBottom /></ProtectedRoute>} 
+            />
+
+            {/* Other Routes */}
+            <Route path="/logout" element={<Logout />} />
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </div>
   );
 }
-
 
 export default App;
