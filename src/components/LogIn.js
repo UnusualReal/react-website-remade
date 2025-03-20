@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/authContext";
+import './LogIn.css';
 
 const LogIn = () => {
-  const { login } = useAuthContext();  // Get login function from context
+  const { login } = useAuthContext();
   const navigate = useNavigate();
   
   const [username, setUsername] = useState("");
@@ -11,29 +12,32 @@ const LogIn = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Assume login is successful; typically you would check credentials
     login({ username });
-    navigate("/home"); // Redirect to home after login
+    navigate("/home");
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
+    <div className="login-container">
+      <div className="login-box">
+        <h2>Login</h2>
+        <form className="login-form" onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
 };

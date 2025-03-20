@@ -1,0 +1,21 @@
+.login-background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(240, 240, 240); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .BackgroundLogIn {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    z-index: -1;
+  }
+  
