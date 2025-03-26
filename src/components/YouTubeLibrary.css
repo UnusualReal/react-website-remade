@@ -1,0 +1,29 @@
+.library-wrapper {
+    padding: 60px 20px;
+    min-height: 100vh;
+    margin-top: 3rem;
+  }
+  
+  .library-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .custom-card {
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .custom-btn {
+    background-color: #4caf50;
+    color: black;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-btn:hover {
+    background-color: #45a049;
+  }
+  

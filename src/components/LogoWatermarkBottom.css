@@ -1,0 +1,11 @@
+.logo-bottom {
+    position: fixed;   
+    bottom: 20px;      
+    right: 20px;       
+    width: 250px;      
+    height: auto;      
+    z-index: 1000;     
+    opacity: 0.8;      
+    animation: none;
+  }
+  

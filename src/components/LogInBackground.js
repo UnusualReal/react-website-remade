@@ -3,8 +3,7 @@ import './LogInBackground.css';
 
 const LogInBackground = ({ children }) => {
   return (
-    <div className="login-background-container">
-      <img className="BackgroundLogIn" src="imgs/Back_trailer.png" alt="LogInBack" />
+    <div className="login-background">
       {children}
     </div>
   );
