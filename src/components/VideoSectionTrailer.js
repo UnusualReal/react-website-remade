@@ -28,7 +28,6 @@ const VideoSectionTrailer = () => {
     };
   }, []);
 
-  // Open video in fullscreen
   const openFullscreen = (videoSrc) => {
     setFullscreenVideo(videoSrc);
     setTimeout(() => {
@@ -57,13 +56,11 @@ const VideoSectionTrailer = () => {
             style={{ animationDelay: `${0.5 + index * 0.3}s` }}
           >
             <div className="video-container">
-              {/* Video element */}
               <video autoPlay muted loop className="video">
                 <source src={videoSrc} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
-              {/* Play button (appears on hover) */}
               <button className="play-button" onClick={() => openFullscreen(videoSrc)}>
                 ▶
               </button>
@@ -72,7 +69,6 @@ const VideoSectionTrailer = () => {
         ))}
       </div>
 
-      {/* Fullscreen Video Overlay */}
       {fullscreenVideo && (
         <div className="fullscreen-overlay" onClick={() => setFullscreenVideo(null)}>
           <video

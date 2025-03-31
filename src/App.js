@@ -1,5 +1,12 @@
 import React from "react";
-import {BrowserRouter, Route, Routes, Navigate, useLocation} from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
 import Navbar from "./components/Navbar";
 import LogIn from "./components/LogIn";
@@ -16,7 +23,9 @@ import YouTubeLibrary from "./components/YouTubeLibrary";
 import VideoSelectionTrailer from "./components/VideoSectionTrailer";
 import LogoWatermarkBottom from "./components/LogoWatermarkBottom";
 import LogInBackground from "./components/LogInBackground";
-import ImageBackground from  './components/ImageBackground'
+import ImageBackground from "./components/ImageBackground";
+import About from "./components/About";
+import "./components/About.css";
 import "./App.css";
 
 function App() {
@@ -24,7 +33,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <AuthProvider>
-          <AppContent />{" "}
+          <AppContent />
         </AuthProvider>
       </BrowserRouter>
     </div>
@@ -32,7 +41,7 @@ function App() {
 }
 
 const AppContent = () => {
-  const location = useLocation(); 
+  const location = useLocation();
   const hideNavbarRoutes = ["/login", "/signup"];
   const shouldShowNavbar = !hideNavbarRoutes.includes(location.pathname);
 
@@ -50,10 +59,12 @@ const AppContent = () => {
         />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Navigate to="/login" />} />
+
         <Route
           path="/home"
           element={
             <ProtectedRoute>
+              <About />
               <LogoWatermark />
               <CardSection />
               <Credits />
@@ -65,10 +76,14 @@ const AppContent = () => {
           path="/trailer"
           element={
             <ProtectedRoute>
-              <TrailerVideo />
-              <VideoBackground1 />
-              <VideoSelectionTrailer />
-              <LogoWatermarkBottom />
+              <div className="trailer-top">
+                <TrailerVideo />
+              </div>
+
+              <div className="trailer-bottom">
+                <VideoSelectionTrailer />
+                <LogoWatermarkBottom />
+              </div>
             </ProtectedRoute>
           }
         />
@@ -77,12 +92,22 @@ const AppContent = () => {
           path="/commissions"
           element={
             <ProtectedRoute>
-              < YouTubeLibrary/>
+              <YouTubeLibrary />
               <LogoWatermarkBottom />
-              <ImageBackground/>
+              <ImageBackground />
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/about"
+          element={
+            <ProtectedRoute>
+              <About />
+            </ProtectedRoute>
+          }
+        />
+
         <Route path="/logout" element={<Logout />} />
       </Routes>
     </>

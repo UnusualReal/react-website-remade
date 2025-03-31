@@ -23,3 +23,14 @@ html, body {
   font-weight: 700;
   font-style: normal;
 }
+
+.trailer-top {
+  background-color: #011802; /* Vivid green */
+  padding: 2rem 1rem;        /* ↓ Reduced padding */
+}
+
+.trailer-bottom {
+  background: linear-gradient(to right, #111, #1a1a1a);
+  padding: 1rem 1rem;        /* ↓ Reduced padding */
+  color: white;
+}

@@ -4,22 +4,22 @@ import "./YouTubeLibrary.css";
 const videos = [
   {
     title: "Replay Your Nightmare",
-    description: "Animation in Source Filmmaker.",
+    description: "FIVE NIGHTS MUSIC",
     videoId: "lRbaolGo8ls"
   },
   {
     title: "Welcome Back",
-    description: "Animationg by Unusual and Broco.",
+    description: "FIVE NIGHTS MUSIC",
     videoId: "G9LSv_I8NfI"
   },
   {
     title: "Turn Back",
-    description: "F30 racing through a tunnel. Pure sound.",
+    description: "FIVE NIGHTS MUSIC",
     videoId: "Ky3AdjRvosI"
   },
   {
     title: "Clean E36 B-Roll",
-    description: "Relaxing and clean b-roll of a BMW E36.",
+    description: "Kyle Allen Music",
     videoId: "86BUv9GQwxI"
   }
 ];

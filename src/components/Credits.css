@@ -1,30 +1,49 @@
-.Program-credits {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5rem; 
-    text-align: center;
-  }
-  
-  .text {
-    color: white; 
-    font-size: 24px;
-    margin-bottom: 10px; 
-  }
-  
-  .imgs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .imgs img {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .imgs img:hover {
-    transform: scale(1.1); 
-  }
-  
+.credits-section {
+  padding: 4rem 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.credits-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  transition: letter-spacing 0.6s ease;
+}
+
+.credits-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.credit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.credit-item img[alt="After Effects"],
+.credit-item img[alt="Node.js"] {
+  height: 65px;
+  width: auto;
+}
+
+.credit-item img {
+  max-height: 60px;
+  width: auto;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  transition: transform 0.3s ease;
+}
+
+.credit-item span {
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+  color: #cfcfcf;
+}
