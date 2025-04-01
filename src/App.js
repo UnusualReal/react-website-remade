@@ -19,7 +19,7 @@ import CardSection from "./components/CardSection";
 import Credits from "./components/Credits";
 import VideoBackground from "./components/VideoBackground";
 import Logout from "./components/LogOut";
-import YouTubeLibrary from "./components/YouTubeLibrary";
+import YouTubeLibrary from "./components/VideoSectionCommissions";
 import VideoSelectionTrailer from "./components/VideoSectionTrailer";
 import LogoWatermarkBottom from "./components/LogoWatermarkBottom";
 import LogInBackground from "./components/LogInBackground";
@@ -27,6 +27,7 @@ import ImageBackground from "./components/ImageBackground";
 import About from "./components/About";
 import "./components/About.css";
 import "./App.css";
+import VideoSectionCommissions from "./components/VideoSectionCommissions";
 
 function App() {
   return (
@@ -92,9 +93,13 @@ const AppContent = () => {
           path="/commissions"
           element={
             <ProtectedRoute>
-              <YouTubeLibrary />
-              <LogoWatermarkBottom />
-              <ImageBackground />
+              <div className="commissions-wrapper">
+                <ImageBackground />
+                <div className="video-section-overlay">
+                  <VideoSectionCommissions />
+                </div>
+                <LogoWatermarkBottom />
+              </div>{" "}
             </ProtectedRoute>
           }
         />
