@@ -11,23 +11,20 @@ import { AuthProvider } from "./context/authContext";
 import Navbar from "./components/Navbar";
 import LogIn from "./components/LogIn";
 import Signup from "./components/SignUp";
-import ProtectedRoute from "./components/ProtectedRoute";
 import LogoWatermark from "./components/LogoWatermark";
 import TrailerVideo from "./components/TrailerVideo";
-import VideoBackground1 from "./components/VideoBackground1";
 import CardSection from "./components/CardSection";
 import Credits from "./components/Credits";
 import VideoBackground from "./components/VideoBackground";
 import Logout from "./components/LogOut";
-import YouTubeLibrary from "./components/VideoSectionCommissions";
-import VideoSelectionTrailer from "./components/VideoSectionTrailer";
+import VideoSectionTrailer from "./components/VideoSectionTrailer";
 import LogoWatermarkBottom from "./components/LogoWatermarkBottom";
 import LogInBackground from "./components/LogInBackground";
 import ImageBackground from "./components/ImageBackground";
 import About from "./components/About";
+import VideoSectionCommissions from "./components/VideoSectionCommissions";
 import "./components/About.css";
 import "./App.css";
-import VideoSectionCommissions from "./components/VideoSectionCommissions";
 
 function App() {
   return (
@@ -59,60 +56,47 @@ const AppContent = () => {
           }
         />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/" element={<Navigate to="/home" />} />
 
         <Route
           path="/home"
           element={
-            <ProtectedRoute>
+            <>
               <About />
               <LogoWatermark />
               <CardSection />
               <Credits />
               <VideoBackground />
-            </ProtectedRoute>
+            </>
           }
         />
         <Route
           path="/trailer"
           element={
-            <ProtectedRoute>
+            <>
               <div className="trailer-top">
                 <TrailerVideo />
               </div>
-
               <div className="trailer-bottom">
-                <VideoSelectionTrailer />
+                <VideoSectionTrailer />
                 <LogoWatermarkBottom />
               </div>
-            </ProtectedRoute>
+            </>
           }
         />
-
         <Route
           path="/commissions"
           element={
-            <ProtectedRoute>
-              <div className="commissions-wrapper">
-                <ImageBackground />
-                <div className="video-section-overlay">
-                  <VideoSectionCommissions />
-                </div>
-                <LogoWatermarkBottom />
-              </div>{" "}
-            </ProtectedRoute>
+            <div className="commissions-wrapper">
+              <ImageBackground />
+              <div className="video-section-overlay">
+                <VideoSectionCommissions />
+              </div>
+              <LogoWatermarkBottom />
+            </div>
           }
         />
-
-        <Route
-          path="/about"
-          element={
-            <ProtectedRoute>
-              <About />
-            </ProtectedRoute>
-          }
-        />
-
+        <Route path="/about" element={<About />} />
         <Route path="/logout" element={<Logout />} />
       </Routes>
     </>

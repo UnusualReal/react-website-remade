@@ -6,14 +6,21 @@ import './LogIn.css';
 const LogIn = () => {
   const { login } = useAuthContext();
   const navigate = useNavigate();
-  
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    login({ username });
-    navigate("/home");
+
+    // ✅ Pass BOTH username and password
+    const result = await login(username, password);
+
+    if (result.success) {
+      navigate("/home");
+    } else {
+      alert("Login failed: " + result.message);
+    }
   };
 
   return (

@@ -33,7 +33,6 @@
   }
 }
 
-
 .video-wrapper {
   display: flex;
   flex-direction: column;
@@ -41,7 +40,6 @@
   justify-content: center;
   width: 80%;
   max-width: 1000px;
-  height: auto;
   margin: 8rem auto;
   padding: 40px;
   backdrop-filter: blur(10px);
@@ -53,12 +51,10 @@
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-
 .video-wrapper.fade-in {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 .video-box {
   width: 250px;
@@ -67,26 +63,26 @@
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   opacity: 0;
-  transition: opacity 1s ease-out;
+  transform: translateY(30px);
+  animation: fadeSlideIn 1s ease forwards;
 }
-
 
 .fade-in-video {
-  opacity: 1;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 1s ease, transform 1s ease;
 }
-
 
 .video-title {
   font-size: 50px;
   color: white;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   text-align: center;
   overflow: hidden;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 1);
   white-space: nowrap;
   border-right: 3px solid rgba(255, 255, 255, 0.75);
   animation: typing 3s steps(30) 1s forwards, blink-caret 0.75s step-end infinite;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 1);
 }
 
 .video-title span {
@@ -100,14 +96,12 @@
   gap: 20px;
 }
 
-
 .video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
-
 
 .fullscreen-overlay {
   position: fixed;
@@ -122,13 +116,11 @@
   z-index: 9999;
 }
 
-
 .fullscreen-video {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
 }
-
 
 .video-container {
   position: relative;

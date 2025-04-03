@@ -7,25 +7,28 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
 
-  // Check localStorage for authentication state when the app loads
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     const storedUser = localStorage.getItem("user");
 
     if (token && storedUser) {
-      setUser(JSON.parse(storedUser));
-      setIsAuthenticated(true);
+      try {
+        setUser(JSON.parse(storedUser)); // 👈 make sure it's parsed!
+        setIsAuthenticated(true);
+      } catch (err) {
+        console.error("Error parsing user from localStorage:", err);
+        setUser(null);
+        setIsAuthenticated(false);
+      }
     }
   }, []);
 
-  // **Signup Function - Registers a New User**
   const signup = async (username, password) => {
     try {
       const res = await axios.post("http://localhost:5000/api/auth/signup", {
         username,
         password,
       });
-
       return { success: true, message: res.data.message };
     } catch (err) {
       return {
@@ -35,7 +38,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // **Login Function - Authenticates the User**
   const login = async (username, password) => {
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", {
@@ -45,15 +47,18 @@ export const AuthProvider = ({ children }) => {
 
       if (!res.data) throw new Error("No data received from server");
 
-      localStorage.setItem("authToken", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+      localStorage.setItem("authToken", res.data.accessToken);
+      localStorage.setItem("user", JSON.stringify(res.data.user)); // ✅ Store as object
 
       setUser(res.data.user);
       setIsAuthenticated(true);
 
       return { success: true, message: "Login successful!" };
     } catch (err) {
-      console.error("Login Error:", err.response ? err.response.data : err.message);
+      console.error(
+        "Login Error:",
+        err.response ? err.response.data : err.message
+      );
       return {
         success: false,
         message: err.response?.data?.message || "Server error",
@@ -61,7 +66,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // **Logout Function - Clears User Data**
   const logout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("user");

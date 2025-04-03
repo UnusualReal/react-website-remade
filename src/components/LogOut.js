@@ -1,20 +1,17 @@
-import React from "react";
-import { useAuthContext } from "../context/authContext"; // Correct import
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../context/authContext";
 
-const LogOut = () => {
-  const { logout } = useAuthContext(); // Get logout function from context
+const Logout = () => {
+  const { logout } = useAuthContext();
+  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout(); // Perform logout
-    // Optionally, you can navigate to a different route after logging out
-  };
+  useEffect(() => {
+    logout();             // 🚀 Perform logout immediately
+    navigate("/login");   // 🔁 Redirect to login page (or /home if you prefer)
+  }, [logout, navigate]);
 
-  return (
-    <div>
-      <h2>Logout</h2>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
-  );
+  return null; // Nothing needs to be rendered
 };
 
-export default LogOut;
+export default Logout;

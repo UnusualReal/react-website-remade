@@ -9,22 +9,15 @@ const VideoSectionTrailer = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-        }
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
-    if (videoWrapperRef.current) {
-      observer.observe(videoWrapperRef.current);
-    }
-
+    if (videoWrapperRef.current) observer.observe(videoWrapperRef.current);
     return () => {
-      if (videoWrapperRef.current) {
-        observer.unobserve(videoWrapperRef.current);
-      }
+      if (videoWrapperRef.current) observer.unobserve(videoWrapperRef.current);
     };
   }, []);
 
@@ -53,7 +46,7 @@ const VideoSectionTrailer = () => {
           <div
             key={index}
             className={`video-box ${isVisible ? "fade-in-video" : ""}`}
-            style={{ animationDelay: `${0.5 + index * 0.3}s` }}
+            style={{ animationDelay: `${0.3 + index * 0.2}s` }}
           >
             <div className="video-container">
               <video autoPlay muted loop className="video">
