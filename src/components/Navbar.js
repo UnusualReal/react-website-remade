@@ -67,13 +67,7 @@ const Navbar = () => {
 
               {/* Right side links */}
               <motion.li className="nav-item" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }}>
-                <a className="nav-link" href="Contact me.html">Contact me</a>
-              </motion.li>
-
-              <motion.li className="nav-item" initial={{ x: 50, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.6 }}>
-                <Link className="nav-link" to="/">
-                  Shopping cart <i className="bi bi-cart4"></i>
-                </Link>
+                <Link className='nav-link' to="/contact">Contact me</Link>
               </motion.li>
 
               {/* Auth Section */}

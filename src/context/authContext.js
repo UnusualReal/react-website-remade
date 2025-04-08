@@ -8,12 +8,13 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem("authToken");
+    const token = localStorage.getItem("token");
     const storedUser = localStorage.getItem("user");
 
     if (token && storedUser) {
       try {
-        setUser(JSON.parse(storedUser)); // 👈 make sure it's parsed!
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser);
         setIsAuthenticated(true);
       } catch (err) {
         console.error("Error parsing user from localStorage:", err);
@@ -23,34 +24,44 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const signup = async (username, password) => {
+  const signup = async (username, email, password) => {
     try {
       const res = await axios.post("http://localhost:5000/api/auth/signup", {
         username,
+        email,
         password,
       });
-      return { success: true, message: res.data.message };
+
+      const { token, username: resUsername, email: resEmail } = res.data;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify({ username: resUsername, email: resEmail }));
+
+      setUser({ username: resUsername, email: resEmail });
+      setIsAuthenticated(true);
+
+      return { success: true, message: "Signup successful!" };
     } catch (err) {
       return {
         success: false,
-        message: err.response?.data?.message || "Server error",
+        message: err.response?.data?.message || "Signup failed",
       };
     }
   };
 
-  const login = async (username, password) => {
+  const login = async (identifier, password) => {
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", {
-        username,
+        identifier,
         password,
       });
 
-      if (!res.data) throw new Error("No data received from server");
+      const { token, username, email } = res.data;
 
-      localStorage.setItem("authToken", res.data.accessToken);
-      localStorage.setItem("user", JSON.stringify(res.data.user)); // ✅ Store as object
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify({ username, email }));
 
-      setUser(res.data.user);
+      setUser({ username, email });
       setIsAuthenticated(true);
 
       return { success: true, message: "Login successful!" };
@@ -61,13 +72,13 @@ export const AuthProvider = ({ children }) => {
       );
       return {
         success: false,
-        message: err.response?.data?.message || "Server error",
+        message: err.response?.data?.message || "Login failed",
       };
     }
   };
 
   const logout = () => {
-    localStorage.removeItem("authToken");
+    localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
     setIsAuthenticated(false);

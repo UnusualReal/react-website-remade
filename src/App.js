@@ -1,12 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Navigate,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AuthProvider } from "./context/authContext";
 import Navbar from "./components/Navbar";
 import LogIn from "./components/LogIn";
@@ -23,17 +16,18 @@ import LogInBackground from "./components/LogInBackground";
 import ImageBackground from "./components/ImageBackground";
 import About from "./components/About";
 import VideoSectionCommissions from "./components/VideoSectionCommissions";
+import ContactMe from "./components/ContactMe"; // Import the ContactMe component
 import "./components/About.css";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <Router>
         <AuthProvider>
           <AppContent />
         </AuthProvider>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 }
@@ -57,7 +51,6 @@ const AppContent = () => {
         />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Navigate to="/home" />} />
-
         <Route
           path="/home"
           element={
@@ -98,6 +91,7 @@ const AppContent = () => {
         />
         <Route path="/about" element={<About />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/contact" element={<ContactMe />} />
       </Routes>
     </>
   );

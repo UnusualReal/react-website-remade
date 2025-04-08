@@ -1,10 +1,10 @@
-const express = require("express");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
-dotenv.config();
-
+const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // 🔐 In-memory mock "database"
 let users = [];
@@ -19,51 +19,47 @@ const generateRefreshToken = (user) => {
   return jwt.sign({ username: user.username }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
 };
 
-// ✅ SIGNUP ROUTE
-router.post("/signup", async (req, res) => {
-  const { username, password } = req.body;
+router.post('/signup', async (req, res) => {
+  const { username, email, password } = req.body;
 
-  // Check if username already exists
-  const existingUser = users.find((u) => u.username === username);
+  if (!username || !email || !password) {
+    return res.status(400).json({ message: "All fields are required." });
+  }
+
+  const existingUser = await User.findOne({ $or: [{ username }, { email }] });
   if (existingUser) {
-    return res.status(400).json({ message: "Username already taken." });
+    return res.status(400).json({ message: "Username or email already taken." });
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
-  const newUser = { username, password: hashedPassword };
+  const newUser = new User({ username, email, password: hashedPassword });
 
-  users.push(newUser);
+  await newUser.save();
 
-  res.status(201).json({ message: "User created successfully!" });
+  const token = jwt.sign({ username, email }, process.env.JWT_SECRET, { expiresIn: '2h' });
+
+  res.status(201).json({ token, username, email });
 });
 
 // ✅ LOGIN ROUTE
-router.post("/login", async (req, res) => {
-  const { username, password } = req.body;
-  const user = users.find((u) => u.username === username);
+router.post('/login', async (req, res) => {
+  const { identifier, password } = req.body;
 
-  if (!user) {
-    return res.status(400).json({ message: "Invalid credentials!" });
-  }
+  console.log("Login request:", { identifier, password });
 
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) {
-    return res.status(400).json({ message: "Invalid credentials!" });
-  }
-
-  const accessToken = generateAccessToken(user);
-  const refreshToken = generateRefreshToken(user);
-
-  refreshTokens.push(refreshToken);
-
-  res.json({
-    accessToken,
-    refreshToken,
-    user: {
-      username: user.username, // ✅ Only send clean user data
-    },
+  const user = await User.findOne({
+    $or: [{ username: identifier }, { email: identifier }]
   });
+
+  if (!user || !(await bcrypt.compare(password, user.password))) {
+    return res.status(401).json({ message: "Invalid credentials." });
+  }
+
+  const token = jwt.sign({ username: user.username, email: user.email }, process.env.JWT_SECRET, { expiresIn: '2h' });
+
+  res.status(200).json({ token, username: user.username, email: user.email });
 });
+
 
 // ✅ LOGOUT ROUTE
 router.post("/logout", (req, res) => {

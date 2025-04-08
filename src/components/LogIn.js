@@ -7,14 +7,13 @@ const LogIn = () => {
   const { login } = useAuthContext();
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState("");
+  const [identifier, setIdentifier] = useState(""); // was username
   const [password, setPassword] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // ✅ Pass BOTH username and password
-    const result = await login(username, password);
+    const result = await login(identifier, password);
 
     if (result.success) {
       navigate("/home");
@@ -30,9 +29,9 @@ const LogIn = () => {
         <form className="login-form" onSubmit={handleLogin}>
           <input
             type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username or Email"
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
             required
           />
           <input
