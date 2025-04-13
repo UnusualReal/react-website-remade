@@ -27,11 +27,11 @@ function Signup() {
   return (
     <div className="signup-wrapper">
       <div className="signup-container">
-        <h2 className="signup-heading">Sign Up</h2>
+        <h2 className="signup-heading">Регистрация</h2>
         <form className="signup-form" onSubmit={handleSignup}>
           <input 
             type="text" 
-            placeholder="Username" 
+            placeholder="Потребителско име" 
             value={username} 
             onChange={(e) => setUsername(e.target.value)} 
             required
@@ -45,15 +45,15 @@ function Signup() {
           />
           <input 
             type="password" 
-            placeholder="Password" 
+            placeholder="Парола" 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
             required
           />
-          <button type="submit">Sign Up</button>
+          <button type="submit">Потвърди</button>
         </form>
         <p className="login-prompt">
-          Already have an account? <a href="/login">Log in</a>
+          Вече имате акаунт? <a href="/login">Вход</a>
         </p>
       </div>
     </div>

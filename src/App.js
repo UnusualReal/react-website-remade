@@ -16,7 +16,9 @@ import LogInBackground from "./components/LogInBackground";
 import ImageBackground from "./components/ImageBackground";
 import About from "./components/About";
 import VideoSectionCommissions from "./components/VideoSectionCommissions";
-import ContactMe from "./components/ContactMe"; // Import the ContactMe component
+import ContactMe from "./components/ContactMe";
+import BehindTheScenes from './components/BehindTheScenes';
+import ProtectedRoute from './components/ProtectedRoute';
 import "./components/About.css";
 import "./App.css";
 
@@ -92,6 +94,9 @@ const AppContent = () => {
         <Route path="/about" element={<About />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/contact" element={<ContactMe />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/behind-the-scenes" element={<BehindTheScenes />} />
+        </Route>
       </Routes>
     </>
   );

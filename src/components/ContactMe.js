@@ -42,11 +42,11 @@ const ContactMe = () => {
       form.current,
       'kRVEvtSVLOfhvdRFv'
     ).then(() => {
-      setStateMessage('Message sent successfully!');
+      setStateMessage('Успешно изпратено съобщение!');
       setIsSubmitting(false);
       setTimeout(() => setStateMessage(null), 5000);
     }, () => {
-      setStateMessage('Failed to send message. Please try again later.');
+      setStateMessage('Неуспешно изпратено съобщение.');
       setIsSubmitting(false);
       setTimeout(() => setStateMessage(null), 5000);
     });
@@ -58,10 +58,10 @@ const ContactMe = () => {
     <div className="contact-me-wrapper">
       <div className="contact-me-container">
         <div className="contact-me-form">
-          <h2>Contact Me</h2>
+          <h2>Свържи се с мен</h2>
           <form ref={form} onSubmit={sendEmail}>
             <div className="form-group">
-              <label htmlFor="user_name">Name:</label>
+              <label htmlFor="user_name">Потребителско име:</label>
               <input
                 type="text"
                 id="user_name"
@@ -87,7 +87,7 @@ const ContactMe = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">Message:</label>
+              <label htmlFor="message">Съобщение:</label>
               <textarea
                 id="message"
                 name="message"
@@ -97,7 +97,7 @@ const ContactMe = () => {
               />
             </div>
 
-            <button type="submit" disabled={isSubmitting}>Send Message</button>
+            <button type="submit" disabled={isSubmitting}>Изпрати</button>
             {stateMessage && <p className="state-message">{stateMessage}</p>}
           </form>
         </div>

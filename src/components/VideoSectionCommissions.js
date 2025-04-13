@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Popover } from "bootstrap"; // Important to import Bootstrap Popover!
+import { Popover } from "bootstrap"; 
 import "./VideoSectionCommissions.css";
 
 const VideoSectionCommissions = () => {
@@ -25,31 +25,30 @@ const VideoSectionCommissions = () => {
     }
   }, [isVisible]);
 
-  // 💡 Your video data, including where the popover shows up
+  
   const youtubeVideos = [
     {
       id: "lRbaolGo8ls",
-      title: "Replay Your Nightmare {Animation}",
-      description: "Fully animated by Me(Unusual) and Broco",
+      title: "Replay Your Nightmare {Анимация}",
+      description: "Напълно анимирано от Мен(Unusual) и Broco",
       placement: "left",
     },
     {
       id: "G9LSv_I8NfI",
-      title: "Welcome Back {Animation}",
-      description:
-        "Half of it is animated by Broco and other half is animated by Me(Unusual)",
+      title: "Welcome Back {Анимация}",
+      description: "Половината е анимирана от Broco и другата половина е от Мен(Unusual)",
       placement: "top",
     },
     {
       id: "Ky3AdjRvosI",
-      title: "Turn Back {Animation}",
-      description: "Animation fully done by Me(Unusual)",
+      title: "Turn Back {Анимация}",
+      description: "Анимацията е напълно направена от Мен(Unusual)",
       placement: "right",
     },
     {
       id: "86BUv9GQwxI",
-      title: "Safe and Sound {Animations Music Video}",
-      description: "Small part was done by Me(Unusual)",
+      title: "Safe and Sound {Музикално видео / Анимация}",
+      description: "Малка част е направена от Мен(Unusual)",
       placement: "bottom",
     },
   ];
@@ -60,19 +59,19 @@ const VideoSectionCommissions = () => {
       className={`commission-wrapper ${isVisible ? "fade-in" : ""}`}
     >
       <h1 className="commission-title">
-        My <span className="green-text">Commission</span> Work
+        Мойте <span className="green-text">платени</span> проекти
       </h1>
-
+  
       <div id="video_selection">
         {youtubeVideos.map((video, index) => {
-          // Determine animation class: top for first 3, bottom for last
           const animationClass = index < 3 ? "fade-in-top" : "fade-in-bottom";
-
+          const delay = `${0.5 + index * 0.3}s`;
+  
           return (
             <div
               key={index}
               className={`video-box ${isVisible ? animationClass : ""}`}
-              style={{ animationDelay: `${0.5 + index * 0.3}s` }}
+              style={{ animationDelay: delay }}
             >
               <div
                 className="video-container"
@@ -100,7 +99,7 @@ const VideoSectionCommissions = () => {
         })}
       </div>
     </div>
-  );
+  );  
 };
 
 export default VideoSectionCommissions;

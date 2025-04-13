@@ -11,14 +11,14 @@ const LogIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Call the login function from the context
+    
     const success = await login(email, password);
 
     if (success) {
-      // Redirect to home page after successful login
+      
       navigate("/home");
     } else {
-      // Handle failed login
+      
       alert("Login failed. Please check your credentials.");
     }
   };

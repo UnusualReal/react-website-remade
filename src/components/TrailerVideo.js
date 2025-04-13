@@ -24,10 +24,9 @@ const TrailerVideo = () => {
           ref={videoRef} 
         ></video>
         <div className="card-body">
-          <h4 className="card-title">OFFICIAL TRAILER</h4>
+          <h4 className="card-title">Официален трейлър</h4>
           <p className="card-text">
-            This trailer presents my content which is on my channel or it's about to be released. If you
-            want to find more from the content presented in the trailer scroll down.
+            В този трейлър има всичко което ще бъде направено или е вече направено и събраво накратко. Ако искате повече продължете надолу.
           </p>
           <button
             className="button-volume"

@@ -1,0 +1,46 @@
+.bts-container {
+    background-color: #111;
+    color: #fff;
+    min-height: 100vh;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .bts-title {
+    margin-bottom: 30px;
+    margin-top: 3rem;
+  }
+  
+  .bts-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .card {
+    width: 18rem;
+    background-color: #222;
+    color: #000000;
+    border: none;
+  }
+  
+  .card-video {
+    width: 100%;
+    height: auto;
+    transform: scale(1.01);
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  .card .btn-primary {
+    background-color: #00a832;
+    border-color: #ffffff;
+    color: black;
+  }
+  
+  .card .btn-primary:hover {
+    background-color: #00b318;
+    border-color: #006432;
+  }
+  

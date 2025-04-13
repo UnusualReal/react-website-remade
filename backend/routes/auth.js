@@ -6,11 +6,11 @@ const User = require('../models/User');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// 🔐 In-memory mock "database"
+
 let users = [];
 let refreshTokens = [];
 
-// 🔐 Create JWT Tokens
+
 const generateAccessToken = (user) => {
   return jwt.sign({ username: user.username }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "15m" });
 };
@@ -41,7 +41,7 @@ router.post('/signup', async (req, res) => {
   res.status(201).json({ token, username, email });
 });
 
-// ✅ LOGIN ROUTE
+
 router.post('/login', async (req, res) => {
   const { identifier, password } = req.body;
 
@@ -61,7 +61,7 @@ router.post('/login', async (req, res) => {
 });
 
 
-// ✅ LOGOUT ROUTE
+
 router.post("/logout", (req, res) => {
   const { refreshToken } = req.body;
   refreshTokens = refreshTokens.filter((token) => token !== refreshToken);

@@ -7,11 +7,11 @@ const Logout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    logout();             // 🚀 Perform logout immediately
-    navigate("/login");   // 🔁 Redirect to login page (or /home if you prefer)
+    logout();             
+    navigate("/login");   
   }, [logout, navigate]);
 
-  return null; // Nothing needs to be rendered
+  return null; 
 };
 
 export default Logout;

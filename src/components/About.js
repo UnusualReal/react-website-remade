@@ -15,13 +15,13 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            <h1>Hello, I’m <span className="highlight">Georgi </span>Minchev</h1>
-            <h3>Creative Developer & Video Editor</h3>
+            <h1>Здравейте, Аз съм <span className="highlight">Георги </span>Минчев</h1>
+            <h3>Креативен разработчик и Видео обработващ</h3>
             <p>
-              I build cinematic car and game animations, websites, and creative digital content.  
-              This portfolio is my digital garage — where my passion meets design.
+            Създавам реалистични анимации с коли и игри, уебсайтове и креативно дигитално съдържание.
+            Това портфолио е моят дигитален гараж — мястото, където страстта ми среща дизайна.
             </p>
-            <a href="/Commissions" className="about-btn">Check My Work</a>
+            <a href="/Commissions" className="about-btn">Виж моята работа</a>
           </motion.div>
 
           <motion.div

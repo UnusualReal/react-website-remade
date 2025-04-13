@@ -33,7 +33,7 @@ const VideoSectionTrailer = () => {
 
   return (
     <div ref={videoWrapperRef} className={`video-wrapper ${isVisible ? "fade-in" : ""}`}>
-      <h1 className="video-title">Watch <span>my</span> projects</h1>
+      <h1 className="video-title">Гледай <span>мойте</span> проекти</h1>
       <div id="video_selection">
         {[
           "/imgs/scorpionss.mp4",

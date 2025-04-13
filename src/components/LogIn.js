@@ -7,7 +7,7 @@ const LogIn = () => {
   const { login } = useAuthContext();
   const navigate = useNavigate();
 
-  const [identifier, setIdentifier] = useState(""); // was username
+  const [identifier, setIdentifier] = useState(""); 
   const [password, setPassword] = useState("");
 
   const handleLogin = async (e) => {
@@ -25,23 +25,23 @@ const LogIn = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Log in</h2>
+        <h2>Вход</h2>
         <form className="login-form" onSubmit={handleLogin}>
           <input
             type="text"
-            placeholder="Username or Email"
+            placeholder="Име или Email"
             value={identifier}
             onChange={(e) => setIdentifier(e.target.value)}
             required
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Парола"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit">Login</button>
+          <button type="submit">Потвърди</button>
         </form>
       </div>
     </div>

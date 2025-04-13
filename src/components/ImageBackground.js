@@ -16,7 +16,7 @@ const ImageBackground = () => {
       setCurrentIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000); // Change every 4 seconds
+    }, 4000); 
 
     return () => clearInterval(interval);
   }, []);
